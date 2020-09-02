@@ -53,3 +53,11 @@ TEST_CASE("Mid Sized Vector"){
     quicksort(test_vec, 0, (test_vec.size()-1));
     CHECK(std::is_sorted(test_vec.begin(), test_vec.end()) == true);
 }
+
+TEST_CASE("Large Sized Vector"){
+    vector<int> test_vec(100000);
+    std::iota(test_vec.begin(), test_vec.end(), 0);
+    std::shuffle(test_vec.begin(), test_vec.end(), std::default_random_engine());
+    quicksort(test_vec, 0, (test_vec.size()-1));
+    CHECK(std::is_sorted(test_vec.begin(), test_vec.end()) == true);
+}
